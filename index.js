@@ -1,13 +1,13 @@
 // Import packages
 import express from 'express';
-import home from "./routes/home.js";
+import ai from "./routes/ai.js";
 
 // Middlewares
 const app = express();
 app.use(express.json());
 
 // Routes
-app.use("/home", home);
+app.use("/ai", ai);
 
 app.get('/', (req, res) => {
 	res.send('Hello World!');
