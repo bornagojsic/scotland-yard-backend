@@ -1,11 +1,18 @@
+// Import packages
 import express from 'express';
+// const home = require("./routes/home");
 
+// Middlewares
 const app = express();
+app.use(express.json());
+
+// Routes
+// app.use("/home", home);
 
 app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
 
-app.listen(3000, () => {
-	console.log('Listening on port 3000');
-});
+// connection
+const port = process.env.PORT || 9001;
+app.listen(port, () => console.log(`Listening to port ${port}`));
