@@ -14,22 +14,22 @@ router.post("/", async (req, res, next) => {
   console.log('Received a POST request!');
   console.log(req.body);
 
-  // const pythonProcess = spawn('python', ['python_file.py']);
+  const { id } = req.body; // Assuming you are using a middleware to parse the request body
 
-  // pythonProcess.stdout.on('data', (data) => {
-  //   // Process the output from Python if needed
-  //   console.log(`Received data from Python: ${data}`);
-  //   res.send(data.toString()); // Send the processed data back as the response
-  // });
+  // Spawn a Python process and pass the ID as an argument
+  const pythonProcess = spawn('python', ['python_file.py', id]);
 
-  // pythonProcess.on('error', (error) => {
-  //   console.error(`Python process error: ${error.message}`);
-  //   res.status(500).send('Internal server error');
-  // });
+  // Collect the output from the Python process
+  pythonProcess.stdout.on('data', (data) => {
+    const processedData = data.toString(); // Assuming the Python script outputs processed data
+    console.log("Processed data from Python: " + processedData);
+  });
 
-  // pythonProcess.on('exit', (code) => {
-  //   console.log(`Python process exited with code ${code}`);
-  // });
+  // Handle any error that might occur during the Python process execution
+  pythonProcess.stderr.on('data', (err) => {
+    console.error(err.toString());
+    res.status(500).send('An error occurred during processing.');
+  });
 
   res.send('Received your POST request!');
 });
