@@ -1,19 +1,24 @@
 {
-  "name": "vercel-testing",
+  "name": "scotland-yard-backend",
   "version": "1.0.0",
-  "description": "node express testing",
+  "description": "This is a repo of the backend server for the Scotland Yard react app using the Scotland Yard Python AI for Mr. X",
   "main": "index.js",
-  "engines": {
-    "node": "18.x"
-  },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bornagojsic/scotland-yard-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bornagojsic/scotland-yard-backend/issues"
+  },
+  "homepage": "https://github.com/bornagojsic/scotland-yard-backend#readme",
   "dependencies": {
-    "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "express": "^4.18.2"
   }
 }
