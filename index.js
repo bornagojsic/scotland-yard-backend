@@ -1,13 +1,13 @@
 // Import packages
 import express from 'express';
-// const home = require("./routes/home");
+import home from "./routes/home.js";
 
 // Middlewares
 const app = express();
 app.use(express.json());
 
 // Routes
-// app.use("/home", home);
+app.use("/home", home);
 
 app.get('/', (req, res) => {
 	res.send('Hello World!');
