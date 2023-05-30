@@ -22,7 +22,8 @@ router.post("/", async (req, res, next) => {
   // Collect the output from the Python process
   pythonProcess.stdout.on('data', (data) => {
     const processedData = data.toString(); // Assuming the Python script outputs processed data
-    console.log("Processed data from Python: " + processedData);
+    // console.log("Processed data from Python: " + processedData);
+    res.send(processedData);
   });
 
   // Handle any error that might occur during the Python process execution
@@ -31,7 +32,7 @@ router.post("/", async (req, res, next) => {
     res.status(500).send('An error occurred during processing.');
   });
 
-  res.send('Received your POST request!');
+  // res.send('Received your POST request!');
 });
 
 export default router;
